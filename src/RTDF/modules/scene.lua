@@ -23,4 +23,11 @@ function Scene._createVolume(self)
   self.volume = love.graphics.newVolumeImage(layers, {linear=true})
 end
 
+function Scene._setVolumePixel(self, position, color)
+  --TODO: create 1x1 imagedata, set the right color to it, then draw it to the correct layer using an offset
+  local temp_data = love.image.newImageData(1,1)
+  temp_data:setPixel(0,0, color.x, color.y, color.z, 1)
+  self.volume:replacePixels(temp_data, position.y, 0, position.x, position.z, true)
+end
+
 return Scene
