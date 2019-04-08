@@ -6,9 +6,7 @@ function Utils.type_error_check(var, type_check)
       --Throw error
       error("Expected variable of type "..tostring(type_check)..", but found variable of type "..tostring(var.type))
     end
-  end
-
-  if type(var) ~= type_check then
+  elseif type(var) ~= type_check then
     --Throw error
     error("Expected variable of type "..tostring(type_check)..", but found variable of type "..tostring(type(var)))
   end
